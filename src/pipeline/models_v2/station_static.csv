@@ -1,0 +1,6 @@
+station_id,road_length_km_3000,street_length_avg_3000,circuity_avg_3000,major_road_km_3000,major_road_share_5000,industrial_count_5000,station_id_encoded
+downtown,1404.083,46.56,1.0304,143.803,0.085,35.0,0
+helwan,875.98,50.54,1.0243,12.742,0.0434,105.0,1
+new_cairo,506.892,93.73,1.0616,81.239,0.1336,40.0,2
+october,664.63,93.82,1.0335,17.055,0.0299,38.0,3
+shobra,1533.607,47.31,1.0168,67.307,0.0409,36.0,4

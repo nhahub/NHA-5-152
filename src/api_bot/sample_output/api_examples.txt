@@ -1,0 +1,287 @@
+Recorded from forecasts_task1_2026-11-22.csv; 'today' fixed at 2026-11-22 so that the forecast is not stale.
+
+### Service index
+GET /
+HTTP 200
+{
+  "name": "Cairo PM2.5 Forecast API",
+  "version": "1.0.0",
+  "docs": "/docs",
+  "endpoints": [
+    "/forecast?district=helwan&horizon=1",
+    "/districts",
+    "/alerts?level=warning",
+    "/health"
+  ]
+}
+
+### Health
+GET /health
+HTTP 200
+{
+  "status": "ok",
+  "api": "up",
+  "version": "1.0.0",
+  "server_time_utc": "2026-11-22T12:00:00+00:00",
+  "forecasts": {
+    "state": "ok",
+    "detail": null,
+    "issue_date": "2026-11-22",
+    "age_days": 0,
+    "rows": 15,
+    "max_age_days": 1
+  },
+  "alert_config": "ok"
+}
+
+### Districts
+GET /districts
+HTTP 200
+[
+  {
+    "id": "downtown",
+    "name_en": "Downtown",
+    "name_ar": "وسط البلد"
+  },
+  {
+    "id": "helwan",
+    "name_en": "Helwan",
+    "name_ar": "حلوان"
+  },
+  {
+    "id": "new_cairo",
+    "name_en": "New Cairo",
+    "name_ar": "القاهرة الجديدة"
+  },
+  {
+    "id": "october",
+    "name_en": "6th of October",
+    "name_ar": "6 أكتوبر"
+  },
+  {
+    "id": "shobra",
+    "name_en": "Shobra",
+    "name_ar": "شبرا"
+  }
+]
+
+### Forecast, one district, all horizons
+GET /forecast?district=shobra
+HTTP 200
+{
+  "district": "shobra",
+  "district_name": "Shobra",
+  "issue_date": "2026-11-22",
+  "age_days": 0,
+  "stale": false,
+  "forecasts": [
+    {
+      "station": "shobra",
+      "station_name": "Shobra",
+      "issue_date": "2026-11-22",
+      "target_date": "2026-11-23",
+      "horizon": 1,
+      "pred_pm25": 54.7,
+      "risk_prob": 0.403,
+      "alert_level": "warning",
+      "aqi_category": "Unhealthy for Sensitive Groups"
+    },
+    {
+      "station": "shobra",
+      "station_name": "Shobra",
+      "issue_date": "2026-11-22",
+      "target_date": "2026-11-24",
+      "horizon": 2,
+      "pred_pm25": 52.0,
+      "risk_prob": 0.452,
+      "alert_level": "none",
+      "aqi_category": "Unhealthy for Sensitive Groups"
+    },
+    {
+      "station": "shobra",
+      "station_name": "Shobra",
+      "issue_date": "2026-11-22",
+      "target_date": "2026-11-25",
+      "horizon": 3,
+      "pred_pm25": 53.6,
+      "risk_prob": 0.422,
+      "alert_level": "none",
+      "aqi_category": "Unhealthy for Sensitive Groups"
+    }
+  ]
+}
+
+### Forecast, one horizon
+GET /forecast?district=helwan&horizon=1
+HTTP 200
+{
+  "district": "helwan",
+  "district_name": "Helwan",
+  "issue_date": "2026-11-22",
+  "age_days": 0,
+  "stale": false,
+  "forecasts": [
+    {
+      "station": "helwan",
+      "station_name": "Helwan",
+      "issue_date": "2026-11-22",
+      "target_date": "2026-11-23",
+      "horizon": 1,
+      "pred_pm25": 47.3,
+      "risk_prob": 0.185,
+      "alert_level": "none",
+      "aqi_category": "Unhealthy for Sensitive Groups"
+    }
+  ]
+}
+
+### Forecast, district given in Arabic
+GET /forecast?district=القاهرة الجديدة&horizon=3
+HTTP 200
+{
+  "district": "new_cairo",
+  "district_name": "New Cairo",
+  "issue_date": "2026-11-22",
+  "age_days": 0,
+  "stale": false,
+  "forecasts": [
+    {
+      "station": "new_cairo",
+      "station_name": "New Cairo",
+      "issue_date": "2026-11-22",
+      "target_date": "2026-11-25",
+      "horizon": 3,
+      "pred_pm25": 38.7,
+      "risk_prob": 0.03,
+      "alert_level": "none",
+      "aqi_category": "Unhealthy for Sensitive Groups"
+    }
+  ]
+}
+
+### Alerts (warning and high)
+GET /alerts
+HTTP 200
+{
+  "issue_date": "2026-11-22",
+  "age_days": 0,
+  "stale": false,
+  "min_level": "warning",
+  "count": 2,
+  "by_level": {
+    "warning": 2,
+    "high": 0
+  },
+  "thresholds": {
+    "1": {
+      "warning": 0.362,
+      "high": 0.587
+    },
+    "2": {
+      "warning": 0.557,
+      "high": 0.802
+    },
+    "3": {
+      "warning": 0.445,
+      "high": 0.863
+    }
+  },
+  "alerts": [
+    {
+      "station": "downtown",
+      "station_name": "Downtown",
+      "issue_date": "2026-11-22",
+      "target_date": "2026-11-23",
+      "horizon": 1,
+      "pred_pm25": 50.9,
+      "risk_prob": 0.383,
+      "alert_level": "warning",
+      "aqi_category": "Unhealthy for Sensitive Groups"
+    },
+    {
+      "station": "shobra",
+      "station_name": "Shobra",
+      "issue_date": "2026-11-22",
+      "target_date": "2026-11-23",
+      "horizon": 1,
+      "pred_pm25": 54.7,
+      "risk_prob": 0.403,
+      "alert_level": "warning",
+      "aqi_category": "Unhealthy for Sensitive Groups"
+    }
+  ]
+}
+
+### Alerts, high only
+GET /alerts?level=high
+HTTP 200
+{
+  "issue_date": "2026-11-22",
+  "age_days": 0,
+  "stale": false,
+  "min_level": "high",
+  "count": 0,
+  "by_level": {
+    "warning": 0,
+    "high": 0
+  },
+  "thresholds": {
+    "1": {
+      "warning": 0.362,
+      "high": 0.587
+    },
+    "2": {
+      "warning": 0.557,
+      "high": 0.802
+    },
+    "3": {
+      "warning": 0.445,
+      "high": 0.863
+    }
+  },
+  "alerts": []
+}
+
+### Error: unknown district
+GET /forecast?district=maadi
+HTTP 404
+{
+  "detail": "Unknown district 'maadi'. Valid districts: downtown, helwan, new_cairo, october, shobra"
+}
+
+### Error: horizon out of range
+GET /forecast?district=helwan&horizon=5
+HTTP 422
+{
+  "detail": [
+    {
+      "type": "less_than_equal",
+      "loc": [
+        "query",
+        "horizon"
+      ],
+      "msg": "Input should be less than or equal to 3",
+      "input": "5",
+      "ctx": {
+        "le": 3
+      }
+    }
+  ]
+}
+
+### Error: district missing
+GET /forecast
+HTTP 422
+{
+  "detail": [
+    {
+      "type": "missing",
+      "loc": [
+        "query",
+        "district"
+      ],
+      "msg": "Field required",
+      "input": null
+    }
+  ]
+}

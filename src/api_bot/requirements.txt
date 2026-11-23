@@ -1,0 +1,5 @@
+# Runtime. Python 3.10 or newer.
+fastapi>=0.110,<1.0
+uvicorn>=0.27
+requests>=2.31
+tzdata>=2024.1          # Cairo time zone on Windows

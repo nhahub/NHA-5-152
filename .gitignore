@@ -1,1 +1,7 @@
-
+__pycache__/
+*.pyc
+.env
+*.db
+mlruns/
+.ipynb_checkpoints/
+artifacts/

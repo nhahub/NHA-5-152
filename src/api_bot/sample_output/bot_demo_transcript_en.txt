@@ -1,0 +1,82 @@
+=== Offline bot demo | forecast file of 2026-11-22 | scenario: mixed | language: en ===
+
+USER: /start
+   BOT | 👋 Cairo air-quality alerts
+   BOT | I message you when PM2.5 is forecast to reach the level you choose, for the next 1-3 days, in the Cairo districts.
+   BOT | 
+   BOT | Start: /subscribe
+   BOT | Forecast now: /forecast helwan
+   BOT | My alerts: /status
+   BOT | Stop: /unsubscribe all
+   BOT | Language / اللغة: /lang ar · /lang en
+   BOT | 
+   BOT | All commands: /help
+
+USER: /subscribe
+   BOT | Which district do you want alerts for?
+   BOT | [ Downtown ] [ Helwan ]
+   BOT | [ New Cairo ] [ 6th of October ]
+   BOT | [ Shobra ]
+   BOT | [ All districts ]
+
+USER taps button: sd:helwan
+   BOT | Alert level for Helwan?
+   BOT | ⚠️ Warning - earlier and more alerts (more false alarms)
+   BOT | 🔴 High - only when a risk day is very likely
+   BOT | [ ⚠️ Warning ] [ 🔴 High risk ]
+
+USER taps button: sl:helwan:high
+   BOT | ✅ Subscribed: Helwan - 🔴 High risk. You will get a message when it applies.
+
+USER: /subscribe new cairo warning
+   BOT | ✅ Subscribed: New Cairo - ⚠️ Warning. You will get a message when it applies.
+
+USER: /subscribe shobra warning
+   BOT | ✅ Subscribed: Shobra - ⚠️ Warning. You will get a message when it applies.
+
+USER: /status
+   BOT | Your alerts
+   BOT | • Helwan - 🔴 High risk
+   BOT | • New Cairo - ⚠️ Warning
+   BOT | • Shobra - ⚠️ Warning
+
+USER: /forecast helwan
+   BOT | 📍 Helwan - forecast issued 22 Nov
+   BOT | • Tomorrow (23 Nov): 🔴 High risk · PM2.5 ≈ 64 µg/m³ (Unhealthy) · risk 74%
+   BOT | • In 2 days (24 Nov): ⚠️ Warning · PM2.5 ≈ 57 µg/m³ (Unhealthy) · risk 61%
+   BOT | • In 3 days (25 Nov): ⚠️ Warning · PM2.5 ≈ 52 µg/m³ (Unhealthy for Sensitive Groups) · risk 46%
+
+USER: /subscribe maadi
+   BOT | I do not know the district “maadi”. Choose one of:
+   BOT | • Downtown - downtown
+   BOT | • Helwan - helwan
+   BOT | • New Cairo - new_cairo
+   BOT | • 6th of October - october
+   BOT | • Shobra - shobra
+
+USER: /subscribe helwan medium
+   BOT | The level must be warning or high.
+
+USER: /unsubscribe new cairo
+   BOT | ✅ Removed: New Cairo.
+
+
+=== Daily check (what the scheduler does after 08:00 Cairo time) ===
+
+-> message to chat 5001:
+   BOT | ⚠️ Air-quality alert (forecast issued 22 Nov)
+   BOT | 
+   BOT | 📍 Helwan
+   BOT | • Tomorrow (23 Nov): 🔴 High risk - PM2.5 ≈ 64 µg/m³ (Unhealthy), risk 74%
+   BOT | 
+   BOT | 📍 Shobra
+   BOT | • Tomorrow (23 Nov): ⚠️ Warning - PM2.5 ≈ 55 µg/m³ (Unhealthy for Sensitive Groups), risk 40%
+   BOT | • In 2 days (24 Nov): ⚠️ Warning - PM2.5 ≈ 59 µg/m³ (Unhealthy), risk 58%
+   BOT | • In 3 days (25 Nov): ⚠️ Warning - PM2.5 ≈ 60 µg/m³ (Unhealthy), risk 50%
+   BOT | 
+   BOT | 💡 Everyone should reduce long or heavy outdoor activity; sensitive groups should stay indoors if possible.
+   BOT | ℹ️ Forecasts are estimates. At 48-72 hours the alerts miss many high-pollution days.
+   BOT | Change: /status · Stop: /unsubscribe all
+
+Report: forecast 2026-11-22: sent 1 (updates 0), nobody to alert 0, already sent 0, failed 0, blocked 0
+Second run the same day: forecast 2026-11-22: sent 0 (updates 0), nobody to alert 0, already sent 1, failed 0, blocked 0 (no duplicate sent)
