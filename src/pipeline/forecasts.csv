@@ -1,0 +1,16 @@
+station,issue_date,target_date,horizon,pred_pm25,risk_prob,alert_level,aqi_category
+downtown,2026-11-23,2026-11-24,1,51.1,0.199,none,Unhealthy for Sensitive Groups
+helwan,2026-11-23,2026-11-24,1,45.0,0.093,none,Unhealthy for Sensitive Groups
+shobra,2026-11-23,2026-11-24,1,52.1,0.212,none,Unhealthy for Sensitive Groups
+new_cairo,2026-11-23,2026-11-24,1,36.6,0.04,none,Unhealthy for Sensitive Groups
+october,2026-11-23,2026-11-24,1,38.2,0.045,none,Unhealthy for Sensitive Groups
+downtown,2026-11-23,2026-11-25,2,48.9,0.468,none,Unhealthy for Sensitive Groups
+helwan,2026-11-23,2026-11-25,2,44.7,0.422,none,Unhealthy for Sensitive Groups
+shobra,2026-11-23,2026-11-25,2,51.8,0.54,none,Unhealthy for Sensitive Groups
+new_cairo,2026-11-23,2026-11-25,2,37.6,0.179,none,Unhealthy for Sensitive Groups
+october,2026-11-23,2026-11-25,2,35.1,0.178,none,Moderate
+downtown,2026-11-23,2026-11-26,3,51.9,0.298,none,Unhealthy for Sensitive Groups
+helwan,2026-11-23,2026-11-26,3,50.2,0.249,none,Unhealthy for Sensitive Groups
+shobra,2026-11-23,2026-11-26,3,54.8,0.525,warning,Unhealthy for Sensitive Groups
+new_cairo,2026-11-23,2026-11-26,3,43.5,0.244,none,Unhealthy for Sensitive Groups
+october,2026-11-23,2026-11-26,3,36.6,0.338,none,Unhealthy for Sensitive Groups

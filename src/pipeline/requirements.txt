@@ -1,8 +1,8 @@
-pandas
-numpy
+pandas==2.3.3
+numpy==2.3.5
 requests
 joblib
-xgboost
-lightgbm
-scikit-learn
+xgboost==3.4.1
+lightgbm==4.7.0
+scikit-learn==1.7.2
 pyarrow

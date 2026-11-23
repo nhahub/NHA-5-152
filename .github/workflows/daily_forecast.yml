@@ -1,0 +1,26 @@
+name: daily-forecast
+on:
+  schedule:
+    - cron: "0 1 * * *"      # 01:00 UTC = 03:00 Cairo time
+  workflow_dispatch:          # the manual "Run workflow" button
+permissions:
+  contents: write
+jobs:
+  forecast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: src/pipeline/requirements.txt
+      - run: pip install -r src/pipeline/requirements.txt
+      - run: python pipeline/run_forecast.py
+        working-directory: src/pipeline
+      - run: |
+          git config user.name "forecast-bot"
+          git config user.email "forecast-bot@users.noreply.github.com"
+          git add src/pipeline/forecasts.csv src/pipeline/forecast_log.csv
+          git commit -m "forecast $(date -u +%F)" || echo "nothing to commit"
+          git push
