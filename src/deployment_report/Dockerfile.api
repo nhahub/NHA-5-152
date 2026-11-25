@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY task3_api_bot/requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+COPY task3_api_bot/ /app/
+COPY task1_pipeline/forecasts.csv /app/data/forecasts.csv
+
+ENV FORECASTS_PATH=/app/data/forecasts.csv
+ENV ALERT_CONFIG_PATH=/app/alert_config.json
+ENV MAX_AGE_DAYS=1
+ENV CORS_ORIGINS=*
+
+EXPOSE 8000
+
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
