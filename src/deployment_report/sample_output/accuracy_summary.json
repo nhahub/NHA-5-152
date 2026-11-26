@@ -1,0 +1,64 @@
+{
+  "evaluated_at_utc": "2026-11-26T20:42:45+00:00",
+  "source_log": "C:\\Users\\Abdelrahman\\OneDrive\\Desktop\\Air Quality Project\\src\\pipeline\\forecast_log.csv",
+  "date_range": {
+    "start": "2026-11-23",
+    "end": "2026-11-25"
+  },
+  "total_evaluated_rows": 30,
+  "overall_mae_ug_m3": 8.63,
+  "overall_rmse_ug_m3": 10.01,
+  "overall_bias_ug_m3": 4.5,
+  "by_horizon": {
+    "horizon_1": {
+      "samples": 15,
+      "mae_ug_m3": 7.26,
+      "rmse_ug_m3": 8.47,
+      "mean_bias_ug_m3": 2.5
+    },
+    "horizon_2": {
+      "samples": 10,
+      "mae_ug_m3": 8.28,
+      "rmse_ug_m3": 9.57,
+      "mean_bias_ug_m3": 3.02
+    },
+    "horizon_3": {
+      "samples": 5,
+      "mae_ug_m3": 13.46,
+      "rmse_ug_m3": 14.24,
+      "mean_bias_ug_m3": 13.46
+    }
+  },
+  "by_district": {
+    "downtown": {
+      "samples": 6,
+      "mae_ug_m3": 10.0,
+      "rmse_ug_m3": 10.89,
+      "mean_bias_ug_m3": 2.97
+    },
+    "helwan": {
+      "samples": 6,
+      "mae_ug_m3": 8.05,
+      "rmse_ug_m3": 9.67,
+      "mean_bias_ug_m3": 4.15
+    },
+    "new_cairo": {
+      "samples": 6,
+      "mae_ug_m3": 6.87,
+      "rmse_ug_m3": 7.4,
+      "mean_bias_ug_m3": 1.27
+    },
+    "october": {
+      "samples": 6,
+      "mae_ug_m3": 5.98,
+      "rmse_ug_m3": 6.8,
+      "mean_bias_ug_m3": 5.98
+    },
+    "shobra": {
+      "samples": 6,
+      "mae_ug_m3": 12.27,
+      "rmse_ug_m3": 13.71,
+      "mean_bias_ug_m3": 8.13
+    }
+  }
+}

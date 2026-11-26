@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2026-11-26T20:37:36+00:00",
+  "overall_status": "SUCCESS",
+  "alert_config_sync": "synced from alert_config.json -> ['pipeline\\\\models_v2\\\\alert_config.json']",
+  "forecasts_validation": {
+    "rows": 15,
+    "issue_date": "2026-11-26",
+    "target_dates": [
+      "2026-11-27",
+      "2026-11-28",
+      "2026-11-29"
+    ],
+    "alerts_count": 0
+  },
+  "published_targets": [],
+  "task3_api_verification": {
+    "status": "passed",
+    "health_state": "ok",
+    "districts_count": 5,
+    "sample_helwan_t1_pm25": 40.6,
+    "invalid_district_http_status": 404,
+    "active_alerts_count": 0
+  },
+  "test_alert_verification": {
+    "status": "passed",
+    "bot_connection": "dry_run (TELEGRAM_BOT_TOKEN not set)",
+    "active_alert_rows": 0,
+    "sample_alert_message": "Test Alert Preview (Simulated): [WARNING] Helwan - PM2.5 ~ 54.7 ug/m3 (Unhealthy for Sensitive Groups)"
+  },
+  "task4_dashboard_verification": {
+    "status": "passed",
+    "app_file": "dashboard\\app.py",
+    "syntax_check": "ok",
+    "horizons_ready": [
+      1,
+      2,
+      3
+    ]
+  }
+}

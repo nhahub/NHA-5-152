@@ -112,10 +112,7 @@ def step_sync_alert_config(alert_config_override: Path | None) -> str:
     src = alert_config_override
     if src is None:
         candidates = [
-            ROOT_DIR / "alert_config.json",
-            TASK3_DIR / "alert_config.json",
-            TASK1_DIR / "models_v2" / "alert_config.json",
-            OUT_DIR / "alert_config.json",
+            TASK1_DIR / "models_v2" / "alert_config.json",   # the real one, used by the pipeline
         ]
         src = next((p for p in candidates if p.is_file()), None)
     if src is None:

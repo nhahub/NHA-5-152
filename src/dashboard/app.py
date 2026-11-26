@@ -72,7 +72,7 @@ def _hex_to_rgba(hex_color: str, alpha: float) -> str:
     return f"rgba({r}, {g}, {b}, {alpha})"
 
 
-@st.cache_data
+@st.cache_data(ttl=3600)
 def load_forecasts(csv_path: str) -> pd.DataFrame:
     """Load forecast data and attach district map coordinates."""
     df = pd.read_csv(csv_path)
