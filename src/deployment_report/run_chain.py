@@ -27,10 +27,10 @@ from urllib.request import urlopen
 
 import pandas as pd
 
-ROOT_DIR = Path(__file__).resolve().parent.parent
-TASK1_DIR = ROOT_DIR / "task1_pipeline"
-TASK3_DIR = ROOT_DIR / "task3_api_bot"
-TASK4_DIR = ROOT_DIR / "task4_dashboard"
+ROOT_DIR = Path(__file__).resolve().parent.parent     
+TASK1_DIR = ROOT_DIR / "pipeline"
+TASK3_DIR = ROOT_DIR / "api_bot"
+TASK4_DIR = ROOT_DIR / "dashboard"
 OUT_DIR = Path(__file__).resolve().parent / "sample_output"
 
 REQUIRED_COLS = [
@@ -170,9 +170,7 @@ def step_distribute_forecasts(src_csv: Path) -> list[str]:
     print("[2/5] Distributing forecasts.csv atomically to Task 3 and Task 4...")
     published = []
     for dst in [
-        TASK3_DIR / "data" / "forecasts.csv",
-        TASK4_DIR / "forecasts.csv",
-        OUT_DIR / "forecasts.csv",
+        
     ]:
         if dst.parent.is_dir() and src_csv.resolve() != dst.resolve():
             atomic_copy(src_csv, dst)

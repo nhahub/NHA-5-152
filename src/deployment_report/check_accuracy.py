@@ -81,10 +81,10 @@ def locate_forecast_log(explicit_path: Path | None) -> Path:
     if explicit_path is not None:
         return explicit_path
     candidates = [
-        ROOT_DIR / "task1_pipeline" / "forecast_log.csv",
-        ROOT_DIR / "forecast_log.csv",
+        ROOT_DIR / "pipeline" / "forecast_log.csv",
         OUT_DIR / "forecast_log.csv",
     ]
+    
     found = next((p for p in candidates if p.is_file()), None)
     if found is None:
         raise FileNotFoundError("Could not find forecast_log.csv in task1_pipeline/ or root.")
