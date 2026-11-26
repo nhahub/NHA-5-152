@@ -1,0 +1,11 @@
+station,issue_date,target_date,horizon,pred_pm25,risk_prob,alert_level,aqi_category,actual_pm25,hours_count,error,abs_error,squared_error,actual_is_risk,alert_triggered,risk_outcome
+downtown,2026-11-22,2026-11-23,1,50.9,0.383,warning,Unhealthy for Sensitive Groups,53.4,24,-2.5,2.5,6.25,False,True,FP (False Alarm)
+helwan,2026-11-22,2026-11-23,1,47.3,0.185,none,Unhealthy for Sensitive Groups,51.2,24,-3.9,3.9,15.21,False,False,TN (Correct Clear)
+shobra,2026-11-22,2026-11-23,1,54.7,0.403,warning,Unhealthy for Sensitive Groups,58.1,24,-3.4,3.4,11.56,True,True,TP (Caught Risk)
+new_cairo,2026-11-22,2026-11-23,1,38.3,0.064,none,Unhealthy for Sensitive Groups,36.9,24,1.4,1.4,1.96,False,False,TN (Correct Clear)
+october,2026-11-22,2026-11-23,1,37.0,0.129,none,Unhealthy for Sensitive Groups,39.5,24,-2.5,2.5,6.25,False,False,TN (Correct Clear)
+downtown,2026-11-22,2026-11-24,2,49.8,0.35,none,Unhealthy for Sensitive Groups,48.1,24,1.7,1.7,2.89,False,False,TN (Correct Clear)
+helwan,2026-11-22,2026-11-24,2,50.7,0.404,none,Unhealthy for Sensitive Groups,56.8,24,-6.1,6.1,37.21,True,False,FN (Missed Risk)
+shobra,2026-11-22,2026-11-24,2,52.0,0.452,none,Unhealthy for Sensitive Groups,54.0,24,-2.0,2.0,4.0,False,False,TN (Correct Clear)
+new_cairo,2026-11-22,2026-11-24,2,36.1,0.193,none,Unhealthy for Sensitive Groups,35.2,24,0.9,0.9,0.81,False,False,TN (Correct Clear)
+october,2026-11-22,2026-11-24,2,37.5,0.167,none,Unhealthy for Sensitive Groups,40.1,24,-2.6,2.6,6.76,False,False,TN (Correct Clear)

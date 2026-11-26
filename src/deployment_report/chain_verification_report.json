@@ -1,0 +1,30 @@
+{
+  "timestamp_utc": "2026-11-25T02:21:42+00:00",
+  "overall_status": "SUCCESS",
+  "alert_config_sync": "synced from alert_config.json -> ['already in place']",
+  "forecasts_validation": {
+    "rows": 15,
+    "issue_date": "2026-11-22",
+    "target_dates": [
+      "2026-11-23",
+      "2026-11-24",
+      "2026-11-25"
+    ],
+    "alerts_count": 2
+  },
+  "published_targets": [],
+  "task3_api_verification": {
+    "status": "skipped",
+    "reason": "task3_api_bot/app/main.py not found"
+  },
+  "test_alert_verification": {
+    "status": "passed",
+    "bot_connection": "dry_run (TELEGRAM_BOT_TOKEN not set)",
+    "active_alert_rows": 2,
+    "sample_alert_message": "Air-quality alert (2026-11-22): downtown horizon 1 -> WARNING (PM2.5 ~ 50.9 ug/m3, risk 38.3%)"
+  },
+  "task4_dashboard_verification": {
+    "status": "skipped",
+    "reason": "task4_dashboard/app.py not found"
+  }
+}
