@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY src/api_bot/requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+COPY src/api_bot/ /app/
+# The forecast file is copied into the image at build time, so rebuild the image to refresh it.
+COPY src/pipeline/forecasts.csv /app/data/forecasts.csv
+
+ENV FORECASTS_PATH=/app/data/forecasts.csv
+ENV ALERT_CONFIG_PATH=/app/alert_config.json
+ENV MAX_AGE_DAYS=1
+ENV CORS_ORIGINS=*
+
+EXPOSE 8000
+
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
