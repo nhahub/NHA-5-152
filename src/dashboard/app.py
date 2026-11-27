@@ -334,13 +334,10 @@ def main() -> None:
         else:
             st.success("Alert Level: NONE - No active threshold alert.")
 
-        # Placeholder until Task 2 provides final recall and false-alarm numbers
         st.caption(
             "Reliability Note: 48h and 72h alerts have lower recall (they can miss "
-            "risky days, especially in spring and summer). Final recall and false "
-            "alarms per 100 days from Task 2 will be updated here."
+            "risky days, especially in spring and summer)."
         )
-
     with st.expander("View All Districts Table for Selected Horizon"):
         display_cols = [
             "district_name",
