@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-11-26T20:37:36+00:00",
+  "timestamp_utc": "2026-11-26T20:55:35+00:00",
   "overall_status": "SUCCESS",
-  "alert_config_sync": "synced from alert_config.json -> ['pipeline\\\\models_v2\\\\alert_config.json']",
+  "alert_config_sync": "synced from alert_config.json -> ['api_bot\\\\alert_config.json']",
   "forecasts_validation": {
     "rows": 15,
     "issue_date": "2026-11-26",
