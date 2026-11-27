@@ -1,7 +1,7 @@
 name: daily-forecast
 on:
   schedule:
-    - cron: "27 0 * * *"      # 01:00 UTC = 03:00 Cairo time
+    - cron: "27 0 * * *"      
   workflow_dispatch:          # the manual "Run workflow" button
 permissions:
   contents: write
