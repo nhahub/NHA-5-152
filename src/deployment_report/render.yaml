@@ -2,13 +2,15 @@ services:
   - type: web
     name: cairo-pm25-api
     runtime: python
-    rootDir: task3_api_bot
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    buildCommand: pip install -r src/api_bot/requirements.txt
+    startCommand: cd src/api_bot && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
       - key: FORECASTS_PATH
-        value: data/forecasts.csv
+        value: ../pipeline/forecasts.csv
       - key: ALERT_CONFIG_PATH
         value: alert_config.json
       - key: MAX_AGE_DAYS
@@ -17,11 +19,3 @@ services:
         value: "*"
       - key: TELEGRAM_BOT_TOKEN
         sync: false
-
-  - type: cron
-    name: cairo-pm25-daily-pipeline
-    runtime: python
-    rootDir: task1_pipeline
-    schedule: "0 1 * * *"
-    buildCommand: pip install -r requirements.txt
-    startCommand: python pipeline/run_forecast.py
